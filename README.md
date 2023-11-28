@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @MattFeroz
 - 👀 I’m interested in software engineering 
-- 🌱 I’m currently learning data science and pythons
+- 🌱 I’m currently learning data science and python
 - 💞️ I’m looking to collaborate on medtech software
 - 📫 How to reach me mferoz@stevens.edu
 
