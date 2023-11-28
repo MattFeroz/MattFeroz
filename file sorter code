@@ -1,0 +1,48 @@
+import os
+import shutil
+
+# Get the desktop path for the current user
+desktop_path = os.path.expanduser('~/Desktop')
+
+# Define the path for the folder where you want to store PDFs
+pdf_folder_path = os.path.join(desktop_path, 'PDFs')
+url_folder_path = os.path.join(desktop_path, "Games")
+doc_folder_path = os.path.join(desktop_path, "Docs")
+jpgpng_folder_path = os.path.join(desktop_path, 'Images')
+
+#Creates a PDF folder if it does not exist
+os.makedirs(pdf_folder_path, exist_ok=True)
+os.makedirs(url_folder_path, exist_ok=True)
+os.makedirs(doc_folder_path, exist_ok=True)
+
+#Lists all of the files on the desktop
+dir_list = os.listdir(desktop_path)
+
+#Loop through the directory list
+for file_name in dir_list:
+    #Construct the full file path
+    file_path = os.path.join(desktop_path, file_name)
+
+    #Check if its a file and if it ends with a .pdf, .url 
+    if os.path.isfile(file_path) and file_name.lower().endswith('.pdf'):    
+        #move the file
+        shutil.move(file_path, pdf_folder_path)
+        #print(f"Moved: {file_name}")
+    elif os.path.isfile(file_path) and file_name.lower().endswith('.url'):    
+        #move the file
+        shutil.move(file_path, url_folder_path)
+        #print(f"Moved: {file_name}")
+    elif os.path.isfile(file_path) and file_name.lower().endswith('.docx'):
+        #move the file
+        shutil.move(file_path, doc_folder_path)
+        #print(f"Moved: {file_name}")
+    elif os.path.isfile(file_path) and (file_name.lower().endswith('.docx') or (file_name.lower().endswith('.xlsx'))):
+        #move the file
+        shutil.move(file_path, doc_folder_path)
+        #print(f"Moved: {file_name}")
+    
+    else:
+        print(file_name)
+
+        
+print("Sorting complete.")
